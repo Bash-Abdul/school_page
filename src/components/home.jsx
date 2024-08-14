@@ -4,13 +4,13 @@ function Home() {
   return (
     <div className="bg-colorBg">
       <div className="px-4 lg:px-32 max-w-screen-2xl mx-auto max-h-[90vh] h-screen">
-        <div className="py-12 h-full flex flex-col md:flex-row-reverse items-center justify-between gap-12">
+        <div className="py-12 h-full flex flex-col-reverse md:flex-row-reverse items-center justify-between gap-12">
           <div>
             <img src={home_image} alt="" />
           </div>
 
           {/* HOME TEXTS */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 text-center md:text-start">
             <h3 className="text-4xl font-semibold mb-4 md:w-[90%] leading-snug">
               Streamline your Institutions Education Process with our <span className="text-figmaBlue">School
               Management Software</span>

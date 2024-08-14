@@ -1,14 +1,24 @@
 import home_image from "../assets/home_image.png";
 import tv from "../assets/tv.png";
 
-function Module() {
+function Module(props) {
+
+  let style 
+  if(props.module_theme === 'bg-figmaGreen'){
+    style = 'flex-row-reverse'
+  }
+  else if(props.module_theme === 'bg-figmaBlue'){
+    style = 'flex-row'
+  }
+
   return (
-    <div className="flex h-[100vh]">
+    <div>
+      {style && <div className={`flex flex-col md:${style} h-[100vh]`}>
       {/* Left Side with Blue Background */}
-      <div className="bg-figmaBlue w-[30%] h-full relative">
-        <div className="absolute bottom-0">
+      <div className={`${props.module_theme} w-full h-[30%] md:w-[30%] md:h-full relative`}>
+        <div className="w-[35vw] absolute bottom-0 right-[-30%]">
           <img
-            src={tv}
+            src={props.module_image}
             alt="School Toolkit"
             className="w-full h-auto"
           />
@@ -19,11 +29,10 @@ function Module() {
       <div className="w-[60%] ml-8 flex items-center justify-center flex-col">
         <h3 className="text-green-600 font-semibold text-sm mb-4">MODULES</h3>
         <h2 className="text-gray-900 text-3xl font-bold mb-6">
-          Admin & Principals Module
+          {props.module_title}
         </h2>
         <p className="text-gray-600 mb-6">
-          This module contains all details of the school regarding Students,
-          teachers, parents, Grades, promotions, academic sessions, and results.
+          {props.module_description}
         </p>
 
         {/* Feature List */}
@@ -32,13 +41,10 @@ function Module() {
             <span className="text-green-600 font-bold text-2xl mr-4">1</span>
             <div>
               <h4 className="text-gray-900 font-semibold">
-                Admission Processing
+                {props.one_title}
               </h4>
               <p className="text-gray-600">
-                The admin is responsible for admitting students, therefore the
-                admin is provided with a means of creating opportunities for
-                admissions and managing the steps required for admitting
-                students.
+                {props.one_description}
               </p>
             </div>
           </li>
@@ -46,11 +52,10 @@ function Module() {
             <span className="text-gray-400 font-bold text-2xl mr-4">2</span>
             <div>
               <h4 className="text-gray-900 font-semibold">
-                Data Creation & Management
+                {props.two_title}
               </h4>
               <p className="text-gray-600">
-                All information and data relating to parents, teachers, classes,
-                students, grades and academic sessions are created by the admin.
+                {props.two_description}
               </p>
             </div>
           </li>
@@ -58,15 +63,14 @@ function Module() {
             <span className="text-gray-400 font-bold text-2xl mr-4">3</span>
             <div>
               <h4 className="text-gray-900 font-semibold">
-                Results & Report processing
+                {props.three_title}
               </h4>
               <p className="text-gray-600">
-                The admin and principal have access to students results and
-                school reports for past and present academic sessions.
+                {props.three_description}
               </p>
             </div>
           </li>
-          <li className="flex items-start">
+          {/* <li className="flex items-start">
             <span className="text-gray-400 font-bold text-2xl mr-4">4</span>
             <div>
               <h4 className="text-gray-900 font-semibold">
@@ -77,16 +81,17 @@ function Module() {
                 their portal and can also send messages to them.
               </p>
             </div>
-          </li>
+          </li> */}
         </ul>
 
         {/* Login Button */}
         <div className="mt-8">
           <button className="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-green-500">
-            Principal's Login →
+            {props.button_text}
           </button>
         </div>
       </div>
+    </div>}
     </div>
   );
 }

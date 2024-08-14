@@ -14,13 +14,14 @@ function Header(){
         }
     ]
 
+
     return(
         <header className="w-full bg-colorBg text-black">
             <nav className='py-8 lg:px-32 px-5'>
-                <div className='flex items-center justify-between text-base gap-8'>
+                <div className={`flex justify-center md:justify-between items-center flex-col md:flex-row  text-base gap-8`}>
                     <a href=""><img src={logo} className='w-32' alt="" /></a>
 
-                    <ul className='md:flex space-x-16 items-center'>
+                    <ul className='hidden md:flex space-x-16 items-center'>
                         {
                             navItems.map(({link, path}) => <Link key={path} to={path} className='block text-base text-figmaBlack font-bold cursor-pointer'>{link}</Link>)
                         }
